@@ -1,9 +1,36 @@
-/* General reset and styles */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Noto Sans", sans-serif;
+    min-width: 50px;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.171);
+    transition: top 0.5s;
+    z-index: 100;
+    display: flex;
+}
+.logo {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333333;
+    display: flex;
+    font-weight: 600;
+    align-items: center;
 }
 
 body {
@@ -12,64 +39,69 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+
+    padding: 100px 20px; 
 }
 
 /* Header */
 header h1 {
     font-size: 2rem;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
-/* Search bar */
-.search-bar {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 30px;
-    text-align: center;
-}
 
-.search-bar input {
-    width: 80%;
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-}
-
-.category-list {
-    width: 100%;
-}
 
 .category-title p {
     margin: 10px 0;
     color: #000000;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 700;
 }
 
-/* Game grid */
+.category-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.category-title img {
+    width: 1rem;
+    margin-right: 10px;
+}
 .game-grid {
     display: grid;
-    gap: 10px;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5%;
+    grid-template-columns: repeat(4, 1fr);
+}
+.category-list {
     width: 100%;
 }
-
-/* Landscape mode: Max 5 items per row */
 @media (orientation: landscape) {
     .game-grid {
         grid-template-columns: repeat(5, 1fr);
-        /* Max 5 items per row */
-        max-width: 100%;
     }
 }
 
-/* Portrait mode: Max 2 items per row */
 @media (orientation: portrait) {
+    
+}
+
+@media screen and (max-width: 700px) {
     .game-grid {
         grid-template-columns: repeat(3, 1fr);
-        /* Max 2 items per row */
-        max-width: 100%;
+        
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .category-list {
+        width: 70%;
+    }
+    .top-bar {
+        padding: 20px 15%;
     }
 }
 
@@ -78,8 +110,12 @@ header h1 {
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    transition: transform 0.2s;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.13);
+    background-color: #ffffff;
+    transition: transform 0.3s;
+    margin-bottom: 10px;
     width: 100%;
+
 }
 
 .image-container {
@@ -87,7 +123,7 @@ header h1 {
     position: relative;
     padding-top: 100%;
     overflow: hidden;
-    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .image-container img {
@@ -95,9 +131,7 @@ header h1 {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #e2e2e2;
+    margin: auto;
     height: 100%;
     object-fit: cover;
 }
@@ -107,7 +141,6 @@ header h1 {
     font-size: 1rem;
     margin-top: 5px;
 }
-
-/* .game-card:hover {
-    transform: scale(1.05);
-} */
+.game-card:hover {
+    transform: scale(1.07);
+}

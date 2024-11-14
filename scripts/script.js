@@ -71,10 +71,10 @@ function renderItems(f, category) {
     const filteredItems = Array.from(f);
     const gameGrid = document.createElement('div');
     gameGrid.classList.add('game-grid');
-    gameGrid.innerHTML = ``;
     const title = document.createElement('div');
     title.classList.add('category-title');
     title.innerHTML = `
+        <img src="https://primegamesworld.com/v1/icons/Aquablitz.png" alt="${category}">
         <p>${category}</p>
     `;
     categoryList.appendChild(title);
@@ -84,8 +84,8 @@ function renderItems(f, category) {
         gameCard.classList.add('game-card');
 
         gameCard.innerHTML = `
-            <div class="image-container">
-                <img src="${item.thumbnailUrl}" alt=${item.thumbnailUrl})}>
+            <div class="image-container loading">
+                <img src="${item.thumbnailUrl}" alt="${item.title}" loading="lazy">
             </div>
             <p>${item.title}</p>
         `;
@@ -97,4 +97,17 @@ function renderItems(f, category) {
 }
 
 
+let lastScrollTop = 0;
+const topBar = document.querySelector('.top-bar');
 
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        topBar.style.top = '-100px'; // Adjust based on top bar height
+    } else {
+        // Scrolling up
+        topBar.style.top = '0';
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+});
