@@ -89,9 +89,9 @@ header h1 {
     
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .game-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         
     }
 }
